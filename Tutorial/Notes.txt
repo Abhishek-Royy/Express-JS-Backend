@@ -1,0 +1,37 @@
+*** Before use templete engine we must have a directory, which name is (views).
+
+* view/Templet engine file are : pug,hbs etc
+* we use (hbs) replace of html to set dynamic templete.
+
+* to set the view or templete engine -> 
+    > at first install (npm i hbs) in the terminal.
+    > app.set('view engine', 'hbs')   <= write this code in the current index.js file or any file..
+    > app.get("/", (req, res) => {
+    res.render('index')
+});     <= write this kind of code to execute the hbs file.
+ 
+
+* In hbs file to declare the vcariable or props we need to use {{}} <<<- this sign, double qurly braces.
+
+* to set the directory name we use = (__dirname)
+* console.log(path.join(__dirname,"../public"));  <= This is used to join the current path with public folder/directory..
+
+* const PORT=8000 / 3000
+app.listen(PORT, () => {
+    console.log("Listining at port 8000");
+})      <<= This code is used to call the server or connect with the server..
+
+* to serving the static website in express js >> we use 
+             const staticPath = path.join(__dirname, "../public");
+this code -> app.use(express.static(staticPath));
+
+* IN app.get("/",(req,res)=>{
+
+})      <= here the first argument always will be a 'request'  <<= This is very importent.
+
+* We can change our templete engine name --> Suppose we write the views fill name as 'assets',
+        > then we make a variable :
+        const assetsData=path.join(__dirname,"/assets);
+    >> Now set the engine route
+        app.set("views",assetsData)
+

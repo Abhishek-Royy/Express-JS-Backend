@@ -1,0 +1,3 @@
+// http://localhost:3000/email?name=kolkata
+    console.log(req.query)      <<=This code is used for set QUERY in a routing page like api,, Above is the example..
+    res.send("Wellcome to Email Page");

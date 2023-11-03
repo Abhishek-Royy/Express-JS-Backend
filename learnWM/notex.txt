@@ -1,0 +1,75 @@
+At the end of the express use HTTP.
+Behind the scean Express JS use HTTP.
+
+*Express JS is used to create server.
+package,routing,data management everything.
+
+*Routing:- When we see '/' sign in our URL, then we called it Routing.
+
+//Express
+step1: npm i express
+
+step2: use express
+    ex:- const express = require('express');
+const app=express();
+
+app.get("/",(req,res)=>{
+    res.send("Hello from express")
+})
+
+app.listen(3000)
+
+** Middleware = middleware is function which always run before a routes.
+app.use((req,res,next)=>{
+    console.log("Hello middleware")
+    next();
+})
+    req = store the users data, all the user internal data will be store in 'req' (incoming Data)
+    res = which kind of data the user want to send any destination, then use 'res' (Sending Data)
+    next = after executing the middleware, we go to the next rout, So to push the code in next rout we use 'next'(Push to next rout)
+
+
+// Route Parameters
+> to handle multiple rout like 
+    facebook.com/profile      < here profile is the main rout 
+    facebook.com/profile/abhi
+    facebook.com/profile/puskar        *all the routes "facebook.com/profile/'now all the name are change', some    portion is always fixed."
+    facebook.com/profile/ashish
+> This kind of changing method is called, Dynamic Routing.
+
+>> DYNAMIC ROUTING USECASE..
+   app.get("/about/:username",(req,res)=>{        //This is call Dynamic Routing.
+    res.send(`Hello from ${req.params.username}`)
+})
+
+
+// TEMPLETE ENGINE  = ejs
+> html has no any kind of power to doing calculation or operation,
+> ejs is kind of html , with calculatio and operation power.
+
+>> EJS setup Steps:
+    * npm i ejs
+    * Configure ejs
+        app.set("view engine","ejs");
+    * create a folder , name=> viwes.
+    * create ejs file inside the views folder.
+    * write 'render' in the place of 'send'.
+** To change the ejs value in webpage we use this tag => <%= any cmd name %>
+
+
+
+// STATIC FILES
+  Static files means to setup (images, stylesheet, frontend JS) <= all this file .
+
+>> STATIC FILE setup Steps:
+    * create a folder called -> public.
+    * create 3 folder inside public folder name -> (images,stylesheets,javascripts).
+    * configure the express Static in script.js file
+    * understand the path.
+** USECASE
+    // Static file Setup
+app.use(express.static('./public'))
+
+
+
+// ERROR HANDELING
